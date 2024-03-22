@@ -2,22 +2,27 @@
 An example Android application for adding products to cart using Kotlin, Compose and Ktor
 
 
-|     * CRUD operations
+|      CRUD operations
 
-|     * Save to database
+|      Save to database
 
-|     * Room migration
+|      Room migration
 
-|     * Ktor fetch data
+|      Ktor fetch data
 
-|     * Animation of adding new product to cart
+|      Animation of adding new product to cart
 
-|     * Splash screen
+|      Splash screen
 
-|     * Loading screen
+|      Loading screen
 
-|     * Use cases
+|      Use cases
 
-|     * Custom navigation graph
+|      Custom navigation graph
 
 
+![Kart image 1](https://imgur.com/67p80D5.png)
+
+![Kart image 2](https://imgur.com/ZKflN9G.png)
+
+![Kart image 3](https://imgur.com/MjGzu0X.png)
