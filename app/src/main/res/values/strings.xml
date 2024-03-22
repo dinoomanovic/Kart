@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">KartApp</string>
+    <string name="product_details">Product Details</string>
+    <string name="posts">Posts</string>
+    <string name="post_details">Post Details</string>
+    <string name="kart">Kart</string>
+    <string name="shopping_with_style">Shopping with style</string>
+    <string name="home">Home</string>
+
+</resources>
