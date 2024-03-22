@@ -30,7 +30,7 @@ fun NavGraph(
     val actions = remember(navController) { MainActions(navController) }
     val bottomNavigation = listOf(
         NavigationIcons(
-            R.drawable.ic_booked,
+            R.drawable.ic_home,
             actions.bottomNavigationHome,
             stringResource(R.string.home)
         ),
