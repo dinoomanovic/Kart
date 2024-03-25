@@ -51,6 +51,7 @@ fun IconButton(
             modifier = modifier
                 .padding(4.dp)
                 .size(18.dp),
+            tint = color ?: Color.Black,
             painter = painterResource(id = image),
             contentDescription = null
         )

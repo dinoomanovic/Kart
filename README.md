@@ -20,6 +20,8 @@ An example Android application for adding products to cart using Kotlin, Compose
 
 |      Custom navigation graph
 
+|      Top and Bottom Navigation Bar
+
 
 ![Kart image 1](https://imgur.com/67p80D5.png)
 
