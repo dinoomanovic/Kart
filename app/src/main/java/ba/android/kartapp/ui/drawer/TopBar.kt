@@ -1,5 +1,6 @@
 package ba.android.kartapp.ui.drawer
 
+import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -39,7 +41,7 @@ fun TopBar(
     navigateBack: () -> Unit,
     topIcons: List<NavigationIcons>
 ) {
-
+    val context = LocalContext.current
     Column(
         modifier = Modifier
     ) {
@@ -84,7 +86,7 @@ fun TopBar(
                             horizontalArrangement = Arrangement.End
                         ) {
                             IconButton(
-                                image = getIconFromTitle(title),
+                                image = getIconFromTitle(context, title),
                                 color = Color.White,
                                 onClick = {},
                                 modifier = Modifier
@@ -99,11 +101,11 @@ fun TopBar(
     }
 }
 
-fun getIconFromTitle(title: String):Int {
+fun getIconFromTitle(context: Context, title: String):Int {
     return when(title) {
-        "Home" -> R.drawable.ic_home
-        "Product Details" -> R.drawable.ic_queue
-        "Kart" -> R.drawable.ic_product_cart
+        context.getString(R.string.home) -> R.drawable.ic_home
+        context.getString(R.string.product_details) -> R.drawable.ic_queue
+        context.getString(R.string.kart) -> R.drawable.ic_product_cart
         else -> R.drawable.ic_home
     }
 }
