@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
@@ -23,6 +24,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ba.android.kartapp.R
+import ba.android.kartapp.ui.components.IconButton
+import ba.android.kartapp.ui.components.MyIcon
 import ba.android.kartapp.ui.components.NavigationHeader
 import ba.android.kartapp.ui.components.NavigationIcons
 import ba.android.kartapp.ui.components.debouncedClickable
@@ -73,9 +76,35 @@ fun TopBar(
                         NavigationHeader(null, title, topIcons)
 
                     }
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .fillMaxHeight(),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.End
+                        ) {
+                            IconButton(
+                                image = getIconFromTitle(title),
+                                color = Color.White,
+                                onClick = {},
+                                modifier = Modifier
+                                    .padding(start = 10.dp)
+                                    .size(36.dp)
+                               )
+                        }
+
                 },
             )
         }
+    }
+}
+
+fun getIconFromTitle(title: String):Int {
+    return when(title) {
+        "Home" -> R.drawable.ic_home
+        "Product Details" -> R.drawable.ic_queue
+        "Kart" -> R.drawable.ic_product_cart
+        else -> R.drawable.ic_home
     }
 }
 
