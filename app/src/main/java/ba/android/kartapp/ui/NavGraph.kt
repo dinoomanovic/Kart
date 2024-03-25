@@ -57,18 +57,21 @@ fun NavGraph(
         }
         composable(MainDestinations.HOME) {
             HomeScreen(
+                navHostController = navController,
                 navigateToProductDetails = actions.navigateToProductDetails,
                 bottomNavigation = bottomNavigation)
         }
         composable(MainDestinations.PRODUCTS) {
             ProductScreen(
+                navHostController = navController,
                 viewModel = hiltViewModel(),
                 navigateToCart = actions.navigateToCart,
                 bottomNavigation = bottomNavigation
-                )
+            )
         }
         composable(MainDestinations.CART) {
             CartScreen(
+                navController = navController,
                 viewModel = hiltViewModel(),
                 navigateToProductDetails = actions.navigateToProductDetails,
                 bottomNavigation = bottomNavigation,

@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Divider
+import androidx.compose.material3.DrawerState
+import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.*
@@ -26,6 +28,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import ba.android.kartapp.R
 import ba.android.kartapp.data.model.ProductEntity
 import ba.android.kartapp.data.model.toProduct
@@ -38,6 +42,7 @@ import coil.compose.rememberImagePainter
 
 @Composable
 fun CartScreen(
+    navController: NavHostController,
     viewModel: CartViewModel,
     bottomNavigation: List<NavigationIcons>,
     navigateToProductDetails:() -> Unit
@@ -47,11 +52,14 @@ fun CartScreen(
     }
 
     val state = viewModel.state
+    val drawerState: DrawerState = DrawerState(DrawerValue.Closed)
 
     Navigation(
+        navHostController = navController,
         title = stringResource(R.string.kart),
         topIcons = listOf(NavigationIcons(R.drawable.ic_product_cart, {})),
         bottomIcons = bottomNavigation,
+        drawerState = drawerState,
         content = {
             if (state.isLoading)
                 LoadingScreen()
@@ -77,10 +85,11 @@ fun CartScreenView(
         if (products.isEmpty()) {
             Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
                 IconButton(
+                    color = Color.Black,
                     image = R.drawable.ic_product_cart,
                     onClick = {}
                 )
-                Text(text = "Cart is Empty!")
+                Text(text = "Cart is Empty!", color = Color.Black)
             }
         } else {
             LazyColumn(
