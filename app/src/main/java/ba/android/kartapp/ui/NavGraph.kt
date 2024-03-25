@@ -59,7 +59,8 @@ fun NavGraph(
             HomeScreen(
                 navHostController = navController,
                 navigateToProductDetails = actions.navigateToProductDetails,
-                bottomNavigation = bottomNavigation)
+                bottomNavigation = bottomNavigation
+            )
         }
         composable(MainDestinations.PRODUCTS) {
             ProductScreen(
@@ -103,35 +104,14 @@ class MainActions(navController: NavHostController) {
     }
 
     val bottomNavigationHome: () -> Unit = {
-        if (navController.currentDestination?.route != MainDestinations.HOME)
-            navController.navigate(MainDestinations.HOME) {
-                launchSingleTop = true
-                restoreState = true
-                popUpTo(MainDestinations.HOME) {
-                    saveState = true
-                }
-            }
+        navController.navigate(MainDestinations.HOME)
     }
 
     val bottomNavigationProducts: () -> Unit = {
-        if (navController.currentDestination?.route != MainDestinations.PRODUCTS)
-            navController.navigate(MainDestinations.PRODUCTS) {
-                launchSingleTop = true
-                restoreState = true
-                popUpTo(MainDestinations.HOME) {
-                    saveState = true
-                }
-            }
+        navController.navigate(MainDestinations.PRODUCTS)
     }
 
     val bottomNavigationCart: () -> Unit = {
-        if (navController.currentDestination?.route != MainDestinations.CART)
-            navController.navigate(MainDestinations.CART) {
-                launchSingleTop = true
-                restoreState = true
-                popUpTo(MainDestinations.HOME) {
-                    saveState = true
-                }
-            }
+        navController.navigate(MainDestinations.CART)
     }
 }
